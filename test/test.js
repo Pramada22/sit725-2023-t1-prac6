@@ -2,7 +2,7 @@ var expect  = require("chai").expect;
 var request = require("request");
 
 describe("Add Two Numbers", function() {
-    var url = "http://localhost:8080/addTwoNumbers/3/5";
+    var url = "http://localhost:8080/addTwoNumbers/6/8";
     it("returns status 200 to check if api works", function(done) {
         request(url, function(error, response, body) {
             expect(response.statusCode).to.equal(200);
@@ -23,17 +23,17 @@ describe("Add Two Numbers", function() {
             done()
           });
     });
-    it("returns the result equal to 8", function(done) {
+    it("returns the result equal to 14", function(done) {
       request(url, function(error, response, body) {
           body = JSON.parse(body)
-          expect(body.result).to.equal(8);
+          expect(body.result).to.equal(14);
           done()
         });
   });
-  it("returns the result not equal to 15", function(done) {
+  it("returns the result not equal to 48", function(done) {
     request(url, function(error, response, body) {
         body = JSON.parse(body);
-        expect(body.result).to.not.equal(15);
+        expect(body.result).to.not.equal(48);
         done()
       });
 });
